@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@mui/material'
 import React from 'react'
-import './globals.css'
+import '../globals.css'
 import { Inter } from 'next/font/google'
 import Applayout from '@/components/Applayout'
 

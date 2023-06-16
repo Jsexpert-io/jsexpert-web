@@ -23,11 +23,11 @@ const userNavigation = [
     { name: 'Sign out', href: '#' },
 ]
 
-function classNames(...classes) {
+function classNames(...classes:string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Example({ children }) {
+export default function Example({ children }:any) {
     return (
         <>
             {/*
@@ -75,7 +75,7 @@ export default function Example({ children }) {
                                                 </Menu.Button>
                                             </div>
                                             <Transition
-                                                as={Fragment}
+                                         
                                                 leave="transition ease-in duration-75"
                                                 leaveFrom="transform opacity-100 scale-100"
                                                 leaveTo="transform opacity-0 scale-95"
@@ -159,10 +159,10 @@ export default function Example({ children }) {
                                 </div>
                             </div>
 
-                            <Transition.Root as={Fragment}>
+                            <Transition.Root >
                                 <div className="lg:hidden">
                                     <Transition.Child
-                                        as={Fragment}
+                                      
                                         enter="duration-150 ease-out"
                                         enterFrom="opacity-0"
                                         enterTo="opacity-100"
@@ -174,7 +174,7 @@ export default function Example({ children }) {
                                     </Transition.Child>
 
                                     <Transition.Child
-                                        as={Fragment}
+                           
                                         enter="duration-150 ease-out"
                                         enterFrom="opacity-0 scale-95"
                                         enterTo="opacity-100 scale-100"
