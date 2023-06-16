@@ -13,62 +13,62 @@ import {
 
 const features = [
   {
-    name: 'Push to deploy.',
-    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
+    name: 'Real-time Performance Monitoring.',
+    description: 'Monitor your API and MongoDB performance in real-time, allowing you to proactively identify and address any issues that arise.',
     icon: CloudArrowUpIcon,
   },
   {
-    name: 'SSL certificates.',
-    description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+    name: 'Performance Metrics and Analytics.',
+    description: 'Gain deep insights into key performance metrics such as response time, latency, throughput, and error rate. Our intuitive analytics enable you to track trends, make data-driven decisions, and enhance the overall user experience.',
     icon: LockClosedIcon,
   },
   {
-    name: 'Simple queues.',
-    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.',
+    name: 'Customizable Middleware',
+    description: 'Our easy-to-integrate middleware provides tailored profiling capabilities specific to your project. Add it to your API endpoints effortlessly and start capturing valuable performance data instantly.',
     icon: ArrowPathIcon,
   },
   {
-    name: 'Advanced security.',
-    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
+    name: 'Error Analysis and Troubleshooting',
+    description: 'Dive deep into error logs and diagnostics to identify the root causes of failures. Quickly troubleshoot issues and reduce downtime by pinpointing and resolving problematic API calls.',
     icon: FingerPrintIcon,
   },
   {
-    name: 'Powerful API.',
-    description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+    name: 'API Usage Patterns',
+    description: 'Understand how your APIs are being used by analyzing usage patterns. Identify popular endpoints, peak usage times, and user behavior to optimize resource allocation and improve scalability.',
     icon: Cog6ToothIcon,
   },
   {
-    name: 'Database backups.',
-    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. ',
+    name: 'Boost MongoDB Performance',
+    description: 'Fine-tune your MongoDB operations, optimize queries, and improve database performance for seamless integration with your APIs.',
     icon: ServerIcon,
   },
 ]
 const tiers = [
   {
-    name: 'Hobby',
+    name: 'Startup',
     id: 'tier-hobby',
     href: '#',
-    priceMonthly: '$19',
+    priceMonthly: '$50',
     description: "The perfect plan if you're just getting started with our product.",
-    features: ['25 products', 'Up to 10,000 subscribers', 'Advanced analytics', '24-hour support response time'],
+    features: ['Single User', 'Up To 30 Api Endpoints', 'Basic Analytics', '24-hour support response time'],
     featured: false,
   },
   {
     name: 'Enterprise',
     id: 'tier-enterprise',
     href: '#',
-    priceMonthly: '$49',
+    priceMonthly: '$30 / user',
     description: 'Dedicated support and infrastructure for your company.',
     features: [
-      'Unlimited products',
-      'Unlimited subscribers',
+      'On Demand Users',
+      'Unlimited Apis',
       'Advanced analytics',
       'Dedicated support representative',
-      'Marketing automations',
-      'Custom integrations',
+      'Custom integrations (On Roadmap)',
     ],
     featured: true,
   },
+  
 ]
 const faqs = [
   {
@@ -140,8 +140,8 @@ export default function Example() {
             <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
               <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                 <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
-                  Announcing our next round of funding.{' '}
-                  <a href="#" className="font-semibold text-white">
+                 Stay Tuned for our Launch
+                  <a href="#" className="font-semibold mx-2 text-green-600">
                     <span className="absolute inset-0" aria-hidden="true" />
                     Read more <span aria-hidden="true">&rarr;</span>
                   </a>
@@ -149,11 +149,10 @@ export default function Example() {
               </div>
               <div className="text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  Deploy to the cloud with confidence
+                Unleash the Full Potential of Your APIs
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt
-                  amet fugiat veniam occaecat fugiat aliqua.
+                Monitor, Analyze, and Improve your API and MongoDB Performance
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                   <a
@@ -171,41 +170,14 @@ export default function Example() {
 
             {/* Logo cloud */}
             <div className="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-              <img
+              {/* <img
                 className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
                 src="https://tailwindui.com/img/logos/158x48/transistor-logo-white.svg"
                 alt="Transistor"
                 width={158}
                 height={48}
-              />
-              <img
-                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/reform-logo-white.svg"
-                alt="Reform"
-                width={158}
-                height={48}
-              />
-              <img
-                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/tuple-logo-white.svg"
-                alt="Tuple"
-                width={158}
-                height={48}
-              />
-              <img
-                className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/savvycal-logo-white.svg"
-                alt="SavvyCal"
-                width={158}
-                height={48}
-              />
-              <img
-                className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/statamic-logo-white.svg"
-                alt="Statamic"
-                width={158}
-                height={48}
-              />
+              /> */}
+           
             </div>
           </div>
           <div
@@ -226,11 +198,10 @@ export default function Example() {
         <div className="mt-32 sm:mt-56">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl sm:text-center">
-              <h2 className="text-base font-semibold leading-7 text-indigo-600">Everything you need</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">No server? No problem.</p>
+              <h2 className="text-base font-semibold leading-7 text-indigo-600"></h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Vision</p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque,
-                iste dolor cupiditate blanditiis.
+              At jsexpert.io, we empower developers and businesses to optimize their API performance and MongoDB usage. With our comprehensive profiling tool, you can gain valuable insights, identify bottlenecks, and enhance the efficiency of your APIs
               </p>
             </div>
           </div>
@@ -281,7 +252,7 @@ export default function Example() {
               <div className="relative aspect-[2/1] h-full md:-mx-8 xl:mx-0 xl:aspect-auto">
                 <img
                   className="absolute inset-0 h-full w-full rounded-2xl bg-gray-800 object-cover shadow-2xl"
-                  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
+                  src="https://images.unsplash.com/photo-1583558952124-8a5c7f29ab35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjI5fHx0ZWFtfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
                   alt=""
                 />
               </div>
@@ -302,14 +273,12 @@ export default function Example() {
                 </svg>
                 <blockquote className="text-xl font-semibold leading-8 text-white sm:text-2xl sm:leading-9">
                   <p>
-                    Gravida quam mi erat tortor neque molestie. Auctor aliquet at porttitor a enim nunc suscipit
-                    tincidunt nunc. Et non lorem tortor posuere. Nunc eu scelerisque interdum eget tellus non nibh
-                    scelerisque bibendum.
+                  Welcome to jsexpert.io! Maximize your API performance with our comprehensive profiling tool. Monitor, analyze, and optimize with ease. Join us today and unlock API excellence. Let's elevate your performance together!
                   </p>
                 </blockquote>
                 <figcaption className="mt-8 text-base">
-                  <div className="font-semibold text-white">Judith Black</div>
-                  <div className="mt-1 text-gray-400">CEO of Tuple</div>
+                  <div className="font-semibold text-white">Neeraj Dana</div>
+                  <div className="mt-1 text-gray-400">CEO of Jsexpert</div>
                 </figcaption>
               </figure>
             </div>
@@ -337,8 +306,7 @@ export default function Example() {
             </p>
           </div>
           <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
-            Qui iusto aut est earum eos quae. Eligendi est at nam aliquid ad quo reprehenderit in aliquid fugiat dolorum
-            voluptatibus.
+          We also offer a 14-day free trial of our Standard tier, allowing you to experience the full power of jsexpert.io before committing to a subscription.
           </p>
           <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
             {tiers.map((tier, tierIdx) => (
@@ -420,14 +388,14 @@ export default function Example() {
 
         {/* FAQ section */}
         <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8">
-          <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
+          {/* <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
             <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">Frequently asked questions</h2>
             <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
               {faqs.map((faq) => (
                 <FaqDisclosure key={faq.question} faq={faq} />
               ))}
             </dl>
-          </div>
+          </div> */}
         </div>
       </main>
 
@@ -438,13 +406,13 @@ export default function Example() {
         </h2>
         <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-            <img
+            {/* <img
               className="h-7"
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
               alt="Company name"
-            />
+            /> */}
             <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-              <div className="md:grid md:grid-cols-2 md:gap-8">
+              {/* <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
                   <h3 className="text-sm font-semibold leading-6 text-white">Solutions</h3>
                   <ul role="list" className="mt-6 space-y-4">
@@ -495,7 +463,7 @@ export default function Example() {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
