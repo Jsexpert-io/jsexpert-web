@@ -10,6 +10,7 @@ import {
   LockClosedIcon,
   ServerIcon,
 } from '@heroicons/react/20/solid'
+import Image from 'next/image'
 
 const features = [
   {
@@ -119,7 +120,9 @@ export default function Example() {
       <main>
         {/* Hero section */}
         <div className="relative isolate overflow-hidden bg-gray-900 pb-16 pt-14 sm:pb-20">
-          <img
+          <Image
+            height={678}
+            width={1155}
             src="https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHNwYWNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=2000&q=100&blend=111827&sat=-100&exp=15&blend-mode=multiply"
             alt=""
             className="absolute inset-0 -z-10 h-full w-full object-cover"
@@ -207,7 +210,7 @@ export default function Example() {
           </div>
           <div className="relative overflow-hidden pt-16">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <img
+              <Image
                 src="https://tailwindui.com/img/component-images/project-app-screenshot.png"
                 alt="App screenshot"
                 className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10"
@@ -226,7 +229,7 @@ export default function Example() {
                   <dt className="inline font-semibold text-gray-900">
                     <feature.icon className="absolute left-1 top-1 h-5 w-5 text-indigo-600" aria-hidden="true" />
                     {feature.name}
-                  </dt>{' '}
+                  </dt>
                   <dd className="inline">{feature.description}</dd>
                 </div>
               ))}
@@ -250,7 +253,9 @@ export default function Example() {
           <div className="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
             <div className="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
               <div className="relative aspect-[2/1] h-full md:-mx-8 xl:mx-0 xl:aspect-auto">
-                <img
+                <Image
+                height={500}
+                width={500}
                   className="absolute inset-0 h-full w-full rounded-2xl bg-gray-800 object-cover shadow-2xl"
                   src="https://images.unsplash.com/photo-1583558952124-8a5c7f29ab35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjI5fHx0ZWFtfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
                   alt=""
@@ -273,7 +278,7 @@ export default function Example() {
                 </svg>
                 <blockquote className="text-xl font-semibold leading-8 text-white sm:text-2xl sm:leading-9">
                   <p>
-                  Welcome to jsexpert.io! Maximize your API performance with our comprehensive profiling tool. Monitor, analyze, and optimize with ease. Join us today and unlock API excellence. Let's elevate your performance together!
+                  Welcome to jsexpert.io! Maximize your API performance with our comprehensive profiling tool. Monitor, analyze, and optimize with ease. Join us today and unlock API excellence. Lets elevate your performance together!
                   </p>
                 </blockquote>
                 <figcaption className="mt-8 text-base">
