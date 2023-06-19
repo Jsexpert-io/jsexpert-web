@@ -2,10 +2,10 @@
 import Image from 'next/image';
 import LogoBlack from '../../../../public/logob.png';
 import Link from 'next/link';
-import { ChangeEventHandler, useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '@/State/store';
-import { useLoginMutation, useRegisterMutation } from '@/State/apiFeatures/auth.apislice';
-import { setUserFailure, setUserStart, setUserSuccess } from '@/State/features/user.feature';
+import { ChangeEventHandler, useState } from 'react';
+import { useAppDispatch } from '@/State/store';
+import { useRegisterMutation } from '@/State/apiFeatures/auth.apislice';
+import { setUserStart, setUserSuccess } from '@/State/features/user.feature';
 import { useRouter } from 'next/navigation';
 import { useSnackbar } from 'notistack';
 import { Alert } from '@mui/material';
@@ -13,23 +13,13 @@ export default function Example() {
   const dispatch = useAppDispatch()
   const { enqueueSnackbar } = useSnackbar()
   const router = useRouter()
-  const [loginapi] = useLoginMutation()
-  const { error, user:loggedInUser, loading } = useAppSelector(state => state.userState)
+  const [registerApi] = useRegisterMutation()
+  const [verifyEmailFlag, setVerifyEmailFlag] = useState(false)
   const [user, setUser] = useState({
     email: '',
     password: '',
   })
-  useEffect(() => {
-    if (loggedInUser?._id) {
-      router.push('/dashboard')
-    }
-  
-    return () => {
-      
-    }
-  }, [loggedInUser])
-  
-
+  const [loading, setloading] = useState(false)
   const onChange = (event: any) => {
 
     setUser({
@@ -40,18 +30,21 @@ export default function Example() {
   }
   const onSubmit = async (event: any) => {
     try {
-      dispatch(setUserStart())
+      setloading(true)
+
+      const data = await registerApi(user).unwrap()
 
 
-      const data :any= await loginapi(user).unwrap()
-      console.log(data);
-      
-      dispatch(setUserSuccess(data))
+      setloading(false)
+      setVerifyEmailFlag(true)
+    } catch (error) {
 
-    } catch (error:any) {
-
-
-      dispatch(setUserFailure(error?.data?.message || error?.message || 'Something went wrong'))
+      setloading(false)
+      enqueueSnackbar('Try again in few minutes', {
+        variant: 'error'
+      })
+    } finally {
+      setloading(false)
     }
 
 
@@ -59,14 +52,7 @@ export default function Example() {
   }
   return (
     <>
-      {/*
-          This example requires updating your template:
-  
-          ```
-          <html class="h-full bg-white">
-          <body class="h-full">
-          ```
-        */}
+
       <div className="flex min-h-full flex-1">
         <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
@@ -77,18 +63,18 @@ export default function Example() {
                 alt="Your Company"
               />
               <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                Sign in to your account
+                Create your account
               </h2>
               <p className="mt-2 text-sm leading-6 text-gray-500">
-                Not a member?{' '}
-                <Link href="/auth/register" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                  Start a 14 day free trial
+                Already have an account?{' '}
+                <Link href="/auth/login" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  Sign in
                 </Link>
               </p>
-              {error && <Alert severity="error" className="mt-4">
+              {verifyEmailFlag && <Alert severity="error" className="mt-4">
                 <div className="text-sm">
                   <p>
-                    {error}
+                    {' Please verify your email'}
                   </p>
                 </div>
               </Alert>}
@@ -123,9 +109,9 @@ export default function Example() {
                       <input
                         id="password"
                         name="password"
+                        type="password"
                         value={user.password}
                         onChange={onChange}
-                        type="password"
                         autoComplete="current-password"
                         required
                         className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -146,11 +132,7 @@ export default function Example() {
                       </label>
                     </div>
 
-                    <div className="text-sm leading-6">
-                      <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                        Forgot password?
-                      </a>
-                    </div>
+
                   </div>
 
                   <div>
@@ -159,7 +141,7 @@ export default function Example() {
                       onClick={onSubmit}
                       className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     >
-                      Sign in
+                      Create your account
                     </button>
                   </div>
                 </form>

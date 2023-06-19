@@ -3,8 +3,9 @@ import React, { useState } from 'react'
 import { Dialog, Disclosure } from '@headlessui/react'
 import { Bars3Icon, MinusSmallIcon, PlusSmallIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
-import LogoWhite from '../../public/logow.png';
+import LogoWhite from '../../../public/logow.png';
 import Image from 'next/image'
+import Link from 'next/link';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -35,9 +36,9 @@ export default function Header() {
         
       </div>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" className="text-sm font-semibold leading-6 text-white">
+        <Link href="/auth/login" className="text-sm font-semibold leading-6 text-white">
           Log in <span aria-hidden="true">&rarr;</span>
-        </a>
+        </Link>
       </div>
     </nav>
     <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>

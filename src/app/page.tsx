@@ -1,6 +1,6 @@
 
 
-import Header, { FaqDisclosure } from '@/components/Header'
+
 import {
   ArrowPathIcon,
   CheckIcon,
@@ -12,7 +12,8 @@ import {
 } from '@heroicons/react/20/solid'
 import Image from 'next/image'
 import LogoWhite from '../../public/logow.png'
-import NotifiedComponent from '@/components/NotifiedComponent'
+import NotifiedComponent from '@/app/landingpagecomponents/NotifiedComponent'
+import Header from './landingpagecomponents/Header'
 const features = [
   {
     name: 'Real-time Performance Monitoring.',

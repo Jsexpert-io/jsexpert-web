@@ -2,7 +2,8 @@ import { ThemeProvider } from '@mui/material'
 import React from 'react'
 import '../globals.css'
 import { Inter } from 'next/font/google'
-import Applayout from '@/components/Applayout'
+import Applayout from '@/app/landingpagecomponents/Applayout'
+import DashboardLayout from './components/DashboardLayout'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,7 +26,7 @@ export default function RootLayout({
 
       </head>
       <body className="h-full">
-        <Applayout>{children}</Applayout>
+        <DashboardLayout>{children}</DashboardLayout>
       </body>
     </html>
   )
