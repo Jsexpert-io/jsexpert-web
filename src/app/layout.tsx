@@ -25,7 +25,8 @@ export default function RootLayout({
 
       </head>
       <body className="h-full">
-        {children}
+        <Applayout>
+        {children}</Applayout>
       </body>
     </html>
   )

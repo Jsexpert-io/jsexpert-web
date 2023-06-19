@@ -1,11 +1,25 @@
 'use client'
 import React, { useState } from 'react'
-
+  import {useSnackbar} from 'notistack'
+const API_URL = 'https://api.jsexpert.io'
 export default function NotifiedComponent() {
     const [email, setEmail] = useState<string>()
-    const onNotified = () => {
+    const {enqueueSnackbar} = useSnackbar()
+    const onNotified = async () => {
+      
+
         console.log(email)
-        
+        await fetch(`${API_URL}/marketing-user`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email }),
+        })
+        enqueueSnackbar('We will notify you once we are live', { variant: 'success' ,anchorOrigin:{
+          horizontal: 'center',
+          vertical: 'top'
+        }})
     }
   return (
     <div className="mt-10 flex items-center justify-center gap-x-6">
