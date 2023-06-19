@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { Dialog, Disclosure } from '@headlessui/react'
 import { Bars3Icon, MinusSmallIcon, PlusSmallIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
+import LogoWhite from '../../public/logow.png';
+import Image from 'next/image'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -12,11 +14,11 @@ export default function Header() {
       <div className="flex lg:flex-1">
         <a href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">JsExpert</span>
-          {/* <img
-            className="h-8 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+          <Image
+            className="h-12 w-auto"
+            src={LogoWhite}
             alt=""
-          /> */}
+          />
         </a>
       </div>
       <div className="flex lg:hidden">
