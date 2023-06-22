@@ -22,7 +22,7 @@ export const apiSlice = createApi({
     }),
     tagTypes: ['Auth', 'category', 'APIDATA', 'service',
         'service-provider',
-        'Questions', 'Users', 'Projects', 'Project', 'Tag'],
+        'Questions', 'Users', 'Projects', 'Project', 'APIDATA_METRICES'],
 
     endpoints: builder => ({})
 })

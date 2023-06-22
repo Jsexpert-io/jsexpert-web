@@ -6,6 +6,7 @@ interface Project {
     description: string,
     clientId: string,
     clientSecret: string,
+    id: string,
 }
 const initialState: {
     project: Project | null,

@@ -10,6 +10,8 @@ import Link from 'next/link'
 import { ApiSharp, DataObjectSharp } from '@mui/icons-material'
 import { ChartBarIcon, CircleStackIcon, TrashIcon } from '@heroicons/react/24/outline'
 import { useSnackbar } from 'notistack'
+import { useRouter } from 'next/navigation'
+
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
@@ -18,7 +20,13 @@ export default function Page() {
     const { data, isLoading, error } = useGetProjectsQuery()
     const [deleteProjectApi] =useDeleteProjectMutation()
     const {enqueueSnackbar} = useSnackbar()
+    const router = useRouter()
     const dispatch = useAppDispatch()
+    
+    const onProjectNavigate=(project:any,path:string)=>{
+        dispatch(setProject(project))
+        router.push(path)
+    }
     const deleteProject = async (id:string) => {
        await deleteProjectApi(id).unwrap()
        enqueueSnackbar('Project deleted successfully',{
@@ -73,17 +81,19 @@ export default function Page() {
                                 </div>
                                 <div className="w-full flex justify-between space-x-2 text-xs truncate px-4 py-2 ">
                                     <div className='flex space-x-2'>
-                                    <Link 
-                                    href={`/analyzer/${project.id}/apianalyzer`}
+                                    <button 
+                                         onClick={()=>onProjectNavigate(project,'/analyzer/apianalyzer')}
+                            
                                     className=" text-gray-600">
                                         <ChartBarIcon className='w-5 h-5 text-gray-600' />
-                                    </Link>
-                                    <Link 
-                                 href={`/analyzer/${project.id}/dbanalyzer`}
+                                    </button>
+                                    <button 
+                                     onClick={()=>onProjectNavigate(project,'/analyzer/dbanalyzer')}
+                                 
                                    className=' text-gray-600'
                                    >
                                       <CircleStackIcon className='w-5 h-5 text-gray-600' />
-                                    </Link>
+                                    </button>
                                     </div>
                                     <div className='flex space-x-2'>
                                    
