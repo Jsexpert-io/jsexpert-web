@@ -30,11 +30,16 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import { DataObject, Settings } from '@mui/icons-material'
+import { useAppSelector } from '@/State/store'
+import { useRouter,usePathname } from 'next/navigation'
+import Link from 'next/link'
+import LogoBlack from '../../../../public/logob.png'
+import Image from 'next/image'
 
 const navigation = [
-    { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-    { name: 'Api Performance', href: '#', icon: UsersIcon, current: false },
-    { name: 'Db Performance', href: '#', icon: DataObject, current: false },
+    { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
+    { name: 'Api Performance', href: '/dashboard/apiperformance', icon: UsersIcon, current: false },
+    { name: 'Db Performance', href: '/dashboard/dbperformance', icon: DataObject, current: false },
 
 ]
 const teams = [
@@ -42,7 +47,7 @@ const teams = [
 
 ]
 const userNavigation = [
-    { name: 'Your profile', href: '#' },
+   
     { name: 'Sign out', href: '#' },
 ]
 
@@ -52,7 +57,9 @@ function classNames(...classes: string[]) {
 
 export default function Example({ children }: { children: React.ReactNode }) {
     const [sidebarOpen, setSidebarOpen] = useState(false)
-
+    const { project } = useAppSelector(state => state.projectState)
+    const router = useRouter()
+    const path = usePathname()
     return (
         <>
             {/*
@@ -108,10 +115,10 @@ export default function Example({ children }: { children: React.ReactNode }) {
                                     {/* Sidebar component, swap this element with another sidebar if you like */}
                                     <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4">
                                         <div className="flex h-16 shrink-0 items-center">
-                                            <img
-                                                className="h-8 w-auto"
-                                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                                alt="Your Company"
+                                            <Image
+                                                className="h-12 w-auto"
+                                                src={LogoBlack}
+                                                alt="Js Expert"
                                             />
                                         </div>
                                         <nav className="flex flex-1 flex-col">
@@ -120,10 +127,10 @@ export default function Example({ children }: { children: React.ReactNode }) {
                                                     <ul role="list" className="-mx-2 space-y-1">
                                                         {navigation.map((item) => (
                                                             <li key={item.name}>
-                                                                <a
+                                                                <Link
                                                                     href={item.href}
                                                                     className={classNames(
-                                                                        item.current
+                                                                        path === item.href
                                                                             ? 'bg-gray-50 text-indigo-600'
                                                                             : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
                                                                         'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
@@ -131,13 +138,13 @@ export default function Example({ children }: { children: React.ReactNode }) {
                                                                 >
                                                                     <item.icon
                                                                         className={classNames(
-                                                                            item.current ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600',
+                                                                            path === item.href ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600',
                                                                             'h-6 w-6 shrink-0'
                                                                         )}
                                                                         aria-hidden="true"
                                                                     />
-                                                                    {item.name}
-                                                                </a>
+                                                                    {item.name} 
+                                                                </Link>
                                                             </li>
                                                         ))}
                                                     </ul>
@@ -171,10 +178,10 @@ export default function Example({ children }: { children: React.ReactNode }) {
                     {/* Sidebar component, swap this element with another sidebar if you like */}
                     <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
                         <div className="flex h-16 shrink-0 items-center">
-                            <img
-                                className="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                alt="Your Company"
+                            <Image
+                                className="h-12 w-auto"
+                                src={LogoBlack}
+                                alt="Js Expert"
                             />
                         </div>
                         <nav className="flex flex-1 flex-col">
@@ -183,10 +190,10 @@ export default function Example({ children }: { children: React.ReactNode }) {
                                     <ul role="list" className="-mx-2 space-y-1">
                                         {navigation.map((item) => (
                                             <li key={item.name}>
-                                                <a
+                                                <Link
                                                     href={item.href}
                                                     className={classNames(
-                                                        item.current
+                                                        path === item.href
                                                             ? 'bg-gray-50 text-indigo-600'
                                                             : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
                                                         'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
@@ -194,13 +201,13 @@ export default function Example({ children }: { children: React.ReactNode }) {
                                                 >
                                                     <item.icon
                                                         className={classNames(
-                                                            item.current ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600',
+                                                            path === item.href ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600',
                                                             'h-6 w-6 shrink-0'
                                                         )}
                                                         aria-hidden="true"
                                                     />
                                                     {item.name}
-                                                </a>
+                                                </Link>
                                             </li>
                                         ))}
                                     </ul>
@@ -265,15 +272,10 @@ export default function Example({ children }: { children: React.ReactNode }) {
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="relative">
                                     <Menu.Button className="-m-1.5 flex items-center p-1.5">
-                                        <span className="sr-only">Open user menu</span>
-                                        <img
-                                            className="h-8 w-8 rounded-full bg-gray-50"
-                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                            alt=""
-                                        />
+                                       
                                         <span className="hidden lg:flex lg:items-center">
                                             <span className="ml-4 text-sm font-semibold leading-6 text-gray-900" aria-hidden="true">
-                                                Tom Cook
+                                              Welcome
                                             </span>
                                             <ChevronDownIcon className="ml-2 h-5 w-5 text-gray-400" aria-hidden="true" />
                                         </span>

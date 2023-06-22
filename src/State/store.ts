@@ -4,6 +4,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { apiSlice } from './api.slice'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 import { persistReducer } from 'redux-persist'
+import projectReducer from './features/project.feature'
 
 const persistConfig = {
   key: 'root',
@@ -13,16 +14,20 @@ const persistConfig = {
 }
 const reducers = combineReducers({
     userState: userReducer,
+    projectState :projectReducer
            
 });
-const persistedReducer = persistReducer(persistConfig, userReducer)
+const persistedUserReducer = persistReducer(persistConfig, userReducer)
+const persistedProjectReducer = persistReducer(persistConfig, projectReducer)
+
 
 export const store = configureStore({
   devTools:process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
-    userState: persistedReducer,
+    userState: persistedUserReducer,
+    projectState :persistedProjectReducer
   },
 })
 

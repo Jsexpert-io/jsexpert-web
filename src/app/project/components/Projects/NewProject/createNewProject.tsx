@@ -36,9 +36,9 @@ export default function CreateNewProject({ open, setOpen }: any) {
         <div>
 
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Subscribe</DialogTitle>
+                <DialogTitle>Create A Project</DialogTitle>
                 <DialogContent>
-                    <div className="mt-10">
+                    <div className="mt-5">
                         <div>
                             <form action="#" method="POST" className="space-y-6">
                                 <div>
@@ -64,28 +64,17 @@ export default function CreateNewProject({ open, setOpen }: any) {
                                         Description
                                     </label>
                                     <div className="mt-2">
-                                        <input
+                                        <textarea
                                             id="description"
                                             name="description"
                                             value={project.description}
                                             onChange={onChange}
-                                            type="text"
-
+                              
+                                            rows={3}
                                             required
                                             className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         />
                                     </div>
-                                </div>
-
-
-                                <div>
-                                    <button
-                                        type="button"
-                                        onClick={onProjectCreate}
-                                        className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                    >
-                                        Create Project
-                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -95,8 +84,17 @@ export default function CreateNewProject({ open, setOpen }: any) {
 
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleClose}>Subscribe</Button>
+                    <Button
+                    variant='outlined'
+                    size='small'
+                    color='primary'
+                    onClick={handleClose}>Cancel</Button>
+                    <Button
+                    size='small'
+                    color='primary'
+
+                    variant='outlined'
+                    onClick={onProjectCreate}>Create</Button>
                 </DialogActions>
             </Dialog>
         </div>

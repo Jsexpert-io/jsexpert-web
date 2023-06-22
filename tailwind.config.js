@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontSize: '13px',
+      fontSize: '12px',
       colors: {
         primary: {
 
