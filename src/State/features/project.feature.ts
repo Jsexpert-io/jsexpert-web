@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+import { persistReducer } from 'redux-persist'
 interface Project {
     _id: string,
     name: string,
@@ -28,4 +29,11 @@ const projectFeature = createSlice({
 })
 
 export const { setProject, clearProject } = projectFeature.actions;
-export default projectFeature.reducer;
+const persistConfigProject = {
+    key: 'root-project',
+    storage,
+}
+
+
+const persistedProjectReducer = persistReducer(persistConfigProject, projectFeature.reducer)
+export default persistedProjectReducer;

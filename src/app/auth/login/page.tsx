@@ -21,7 +21,7 @@ export default function Example() {
   })
   useEffect(() => {
     if (loggedInUser?._id) {
-      router.push('/dashboard')
+      router.push('/project')
     }
   
     return () => {

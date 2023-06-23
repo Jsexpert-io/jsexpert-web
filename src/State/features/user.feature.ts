@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+import { persistReducer } from 'redux-persist'
 export interface UserState {
     user: any;
     token: string | null;
@@ -43,5 +45,10 @@ const userSlice = createSlice({
 })
 
 export const { setUserStart, setUserSuccess, setUserFailure, removeUser } = userSlice.actions;
+const persistConfig = {
+    key: 'root-user',
+    storage,
+}
 
-export default userSlice.reducer;
+export const persistedUserReducer = persistReducer(persistConfig, userSlice.reducer)
+export default persistedUserReducer;

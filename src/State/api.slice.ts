@@ -1,11 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+const devMode = process.env.NODE_ENV === 'development';
 export const apiSlice = createApi({
     //reducerPath: 'api', //optional
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://api.jsexpert.io',
+        baseUrl: devMode ?
+        'http://localhost:3001':'https://api.jsexpert.io',
         prepareHeaders: (headers, { getState }) => {
-            console.log(getState() as any)
+          
             const token = (getState() as any)?.userState?.token;
             const project = (getState() as any)?.projectState?.project;
 

@@ -1,4 +1,5 @@
 import { apiSlice } from "../api.slice";
+import { store } from "../store";
 
 interface RequestObject {
     path: string;
@@ -26,17 +27,20 @@ interface ResponseObject {
 
 interface Response {
     paginatedData: {
-        avgDuration:number
-        avgMemoryUsage:number
-        avgReqSize:number
-        avgResSize:number
-        count:number
-        failedRequests:number
-        latestRequestDate:string
-        maxDuration:number
-        minDuration:number
-        successfulRequests:number
-        _id:string
+        avgDuration: number
+        avgMemoryUsage: number
+        avgReqSize: number
+        avgResSize: number
+        count: number
+        failedRequests: number
+        latestRequestDate: string
+        maxDuration: number
+        minDuration: number
+        successfulRequests: number
+        _id: {
+            endpoint: string
+            method: string
+        }
 
     }[];
     total: number;
@@ -44,18 +48,43 @@ interface Response {
 
 
 const apiPerformanceApiSlice = apiSlice.injectEndpoints({
-    endpoints: builder => ({
-        getApiData: builder.query<Response, void>({
-            query: () => ({
-                url: '/server-data/1/5',
-                method: 'GET'
-            }),
-          
-            providesTags: ['APIDATA_METRICES']
-        }),
+    endpoints: builder => {
+        // access state in here with builder.getState()
 
-    })
+        return {
+            getApiData: builder.query<Response, void>({
+                query: () => {
+                    const { apiMetricesFilter } = store.getState().apiMetricesFilterState;
+                    return {
+                        url: '/server-data',
+                        params: {
+                            sortBy: apiMetricesFilter.sortBy,
+                            orderBy: apiMetricesFilter.orderBy,
+                            page: apiMetricesFilter.currentPage,
+                            limit: apiMetricesFilter.limit,
+                            search: apiMetricesFilter.search,
+                        },
+                        method: 'GET'
+                    }
+                },
+
+                providesTags: ['APIDATA_METRICES']
+            }),
+            getApiDataByEndpoint: builder.query<Response, string>({
+                query: (path:string) => {
+                  
+                    return {
+                        url: `/server-data/findByEndpoint?endpoint=${path}`,
+                       
+                        method: 'GET'
+                    }
+                },
+
+                providesTags: ['APIDATA_METRICES']
+            }),
+        }
+    }
 
 });
 
-export const { useGetApiDataQuery } = apiPerformanceApiSlice;
+export const { useGetApiDataQuery , useGetApiDataByEndpointQuery } = apiPerformanceApiSlice;
