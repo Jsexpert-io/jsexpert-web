@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { useGetApiDataByEndpointQuery, useGetApiDataQuery } from '@/State/apiFeatures/apiperformance.slice';
 import { useSearchParams } from 'next/navigation';
+import { lightGreen, red } from '@mui/material/colors';
 
-ChartJS.register(ArcElement, Tooltip);
+ChartJS.register(ArcElement, Tooltip,Title ,Legend );
 export default function RequestCountChart() {
     const searchParams = useSearchParams()
 
@@ -23,28 +24,52 @@ export default function RequestCountChart() {
         }
     }, [endpoinsData, path])
     return (
-        <div className='flex flex-col space-y-4 p-8 shadow rounded-lg border'>
-            <div>
-                <div className='text-xs text-gray-600'>Number of Requests</div>
-            </div>
+        <div className='flex flex-col space-y-4 p-2 shadow rounded-lg border'>
+            
             <Doughnut
+                options={{
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    cutout: '65%',
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Request Count',
+                            position: 'bottom',
+                            font: {
+                                size: 12
+                            }
+                        },
+                        legend: {
+                            display: false,
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 10
+                                }
+                            }
+                        }
+                    }
+                   
 
-                className='w-40 h-40'
+                }}
+
+                className='w-40 h-40 '
                 data={{
-
                     labels: ['Success Requests', 'Failed Requests'],
                     datasets: [
                         {
                             label: 'Request',
                             data: [endpointData?.successfulRequests, endpointData?.failedRequests],
                             backgroundColor: [
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 99, 132, 0.2)',
+                                '#7F56D9',
+                                '#F4EBFF',
 
                             ],
                             borderColor: [
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 99, 132, 1)',
+                                '#7F56D9',
+                                '#F4EBFF',
+                         
 
                             ],
                             borderWidth: 1,

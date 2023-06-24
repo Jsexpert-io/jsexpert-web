@@ -5,7 +5,8 @@ import { useSearchParams } from 'next/navigation'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { useGetApiDataByEndpointQuery, useGetApiDataQuery } from '@/State/apiFeatures/apiperformance.slice';
-import RequestCountChart from './RequestCountChart';
+import RequestCountChart from './components/RequestCountChart';
+import { RequestDistributionChart } from './components/RequestDistributionChart';
 
 ChartJS.register(ArcElement, Tooltip);
 
@@ -21,9 +22,10 @@ export default function page() {
 
 
   return (
-    <div className='flex space-x-4'>
-      <div className='grid md:grid-cols-3  grid-cols-1'>
+    <div className='flex space-x-4 w-full'>
+      <div className='grid md:grid-cols-4 gap-8 w-full grid-cols-1'>
         <RequestCountChart />
+        <RequestDistributionChart data={data} />
       </div>
 
     </div>

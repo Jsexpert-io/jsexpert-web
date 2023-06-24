@@ -1,3 +1,4 @@
+import { RequestDetailModel } from "../Models/RequestDetailModel";
 import { apiSlice } from "../api.slice";
 import { store } from "../store";
 
@@ -70,7 +71,7 @@ const apiPerformanceApiSlice = apiSlice.injectEndpoints({
 
                 providesTags: ['APIDATA_METRICES']
             }),
-            getApiDataByEndpoint: builder.query<Response, string>({
+            getApiDataByEndpoint: builder.query<RequestDetailModel[], string>({
                 query: (path:string) => {
                   
                     return {
