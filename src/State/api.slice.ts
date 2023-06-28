@@ -7,6 +7,7 @@ const devMode = process.env.NODE_ENV === 'development';
 export const apiSlice = createApi({
     //reducerPath: 'api', //optional
     baseQuery: fetchBaseQuery({
+        
         baseUrl: devMode ?
         'http://localhost:3001':'https://api.jsexpert.io',
         responseHandler:(response)=>{
