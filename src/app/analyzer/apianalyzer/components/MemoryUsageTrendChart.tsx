@@ -22,6 +22,11 @@ ChartJS.register(
     Legend
 );
 export const options = {
+    elements: {
+        point:{
+            radius: 0
+        }
+    },
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -49,16 +54,20 @@ const MemoryUsageTrendChart = () => {
             {
                 label: 'Memory Usage Trend',
                 data: chartDataPoints,
-                fill: true,
-                //borderColor: '#4B5563',
+                fill: false,
+                color: '#000',
+                borderWidth: 2,
+                borderColor: '#7e3af2',
                 tension: 0.4,
-                backgroundColor: 'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.25) 100%)',
+                backgroundColor: '#000',
             },
         ],
     };
     console.log(chartConfig)
     return (
-        <div className='flex flex-col space-y-4 p-2 bg-green-50  shadow rounded-lg '>
+        <div className='flex flex-col
+        justify-center items-center
+        space-y-4 p-2 bg-green-50  shadow rounded-lg '>
 
 
             <Line
