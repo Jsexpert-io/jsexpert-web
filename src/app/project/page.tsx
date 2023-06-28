@@ -18,26 +18,28 @@ function classNames(...classes: string[]) {
 
 export default function Page() {
     const { data, isLoading, error } = useGetProjectsQuery()
-    const [deleteProjectApi] =useDeleteProjectMutation()
-    const {enqueueSnackbar} = useSnackbar()
+    const [deleteProjectApi] = useDeleteProjectMutation()
+    const { enqueueSnackbar } = useSnackbar()
     const router = useRouter()
     const dispatch = useAppDispatch()
-    
-    const onProjectNavigate=(project:any,path:string)=>{
+
+    const onProjectNavigate = (project: any, path: string) => {
         dispatch(setProject(project))
         router.push(path)
     }
-    const deleteProject = async (id:string) => {
-       await deleteProjectApi(id).unwrap()
-       enqueueSnackbar('Project deleted successfully',{
-              variant:'success'
-       })
+    const deleteProject = async (id: string) => {
+        await deleteProjectApi(id).unwrap()
+        enqueueSnackbar('Project deleted successfully', {
+            variant: 'success'
+        })
     }
     if (isLoading) {
         return <div>Loading...</div>
     }
     if (error) {
-        return <div>Please try again</div>
+        return <div>{
+            (error as any)?.data?.message || 'Something went wrong'
+        }</div>
     }
     if (!data?.length) {
         return <div>
@@ -56,7 +58,7 @@ export default function Page() {
             <ul role="list" className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
                 {
                     data && data?.map((project: any) => {
-                     
+
                         const bgColor = `bg-primary-500`
                         const initials = project.name.split(' ').map((word: string) => word[0]).join('')
                         return <li
@@ -76,33 +78,33 @@ export default function Page() {
                             </div>
                             <div className="flex-1   w-48 px-2 py-2 flex-col   justify-between rounded-r-md border-b border-r border-t border-gray-200 bg-white">
                                 <div className="flex-1  px-4 py-2 w-full text-sm">
-                                   <h2 className='text-lg font-medium text-gray-900'> {project.name}</h2>
-                                  
+                                    <h2 className='text-lg font-medium text-gray-900'> {project.name}</h2>
+
                                 </div>
                                 <div className="w-full flex justify-between space-x-2 text-xs truncate px-4 py-2 ">
                                     <div className='flex space-x-2'>
-                                    <button 
-                                         onClick={()=>onProjectNavigate(project,'/analyzer/apianalyzer')}
-                            
-                                    className=" text-gray-600">
-                                        <ChartBarIcon className='w-5 h-5 text-gray-600' />
-                                    </button>
-                                    <button 
-                                     onClick={()=>onProjectNavigate(project,'/analyzer/dbanalyzer')}
-                                 
-                                   className=' text-gray-600'
-                                   >
-                                      <CircleStackIcon className='w-5 h-5 text-gray-600' />
-                                    </button>
+                                        <button
+                                            onClick={() => onProjectNavigate(project, '/analyzer/apianalyzer')}
+
+                                            className=" text-gray-600">
+                                            <ChartBarIcon className='w-5 h-5 text-gray-600' />
+                                        </button>
+                                        <button
+                                            onClick={() => onProjectNavigate(project, '/analyzer/dbanalyzer')}
+
+                                            className=' text-gray-600'
+                                        >
+                                            <CircleStackIcon className='w-5 h-5 text-gray-600' />
+                                        </button>
                                     </div>
                                     <div className='flex space-x-2'>
-                                   
-                                    <button 
-                                    onClick={()=>deleteProject(project.id)}
-                                   className=' text-gray-600'
-                                   >
-                                      <TrashIcon className='w-5 h-5 text-red-600' />
-                                    </button>
+
+                                        <button
+                                            onClick={() => deleteProject(project.id)}
+                                            className=' text-gray-600'
+                                        >
+                                            <TrashIcon className='w-5 h-5 text-red-600' />
+                                        </button>
                                     </div>
 
                                 </div>

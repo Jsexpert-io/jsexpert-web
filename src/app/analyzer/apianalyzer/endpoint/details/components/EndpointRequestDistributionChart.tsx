@@ -92,7 +92,8 @@ export const RequestDistributionChart = ({ data }:{data: RequestDetailModel[] | 
 
     return (
         <div className='flex flex-col space-y-4 p-2 shadow rounded-lg border'>
-            <Bar data={barChartData} options={{
+            <Bar data={barChartData} 
+            options={{
                 
                  plugins: {
                     title: {

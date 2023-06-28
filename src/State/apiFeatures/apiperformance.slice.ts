@@ -3,7 +3,9 @@ import { apiSlice } from "../api.slice";
 import { store } from "../store";
 
 interface RequestObject {
+
     path: string;
+    
     method: string;
     body: Record<string, unknown>;
     headers: string;
@@ -83,9 +85,46 @@ const apiPerformanceApiSlice = apiSlice.injectEndpoints({
 
                 providesTags: ['APIDATA_METRICES']
             }),
+            getRequestDistribution: builder.query<any, void>({
+                query: () => {
+                    return {
+                        url: '/server-data/getRequestDistribution',
+                        method: 'GET'
+                    }
+                }
+            }),
+            getRequestDurationDistribution: builder.query<any, void>({
+                query: () => {
+                    return {
+                        url: '/server-data/getRequestDurationDistribution',
+                        method: 'GET'
+                    }
+                }
+            }),
+            getMemoryUsageTrend: builder.query<Response, void>({
+                query: () => {
+                    return {
+                        url: '/server-data/getMemoryUsageTrend',
+                        method: 'GET'
+                    }
+                }
+            }),
+            errorStatusCodeDitribution: builder.query<Response, void>({
+                query: () => {
+                    return {
+                        url: '/server-data/errorStatusCodeDitribution',
+                        method: 'GET'
+                    }
+                }
+            }),
         }
     }
 
 });
 
-export const { useGetApiDataQuery , useGetApiDataByEndpointQuery } = apiPerformanceApiSlice;
+export const { useGetApiDataQuery , useGetApiDataByEndpointQuery,
+    useGetRequestDistributionQuery,
+    useGetRequestDurationDistributionQuery,
+    useGetMemoryUsageTrendQuery,
+    useErrorStatusCodeDitributionQuery
+} = apiPerformanceApiSlice;

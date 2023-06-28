@@ -36,6 +36,7 @@ const userSlice = createSlice({
             state.error = action.payload;
         },
         removeUser: (state) => {
+            console.log('removeUser');
             state.user = null;
             state.token = null;
             state.loading = false;

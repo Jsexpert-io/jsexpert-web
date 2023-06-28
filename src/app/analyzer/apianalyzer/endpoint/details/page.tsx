@@ -4,13 +4,13 @@ import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import { useGetApiDataByEndpointQuery, useGetApiDataQuery } from '@/State/apiFeatures/apiperformance.slice';
-import RequestCountChart from './components/RequestCountChart';
-import { RequestDistributionChart } from './components/RequestDistributionChart';
+import { useGetApiDataByEndpointQuery } from '@/State/apiFeatures/apiperformance.slice';
+import {RequestCountChart} from './components/EndpointRequestCountChart';
+import { RequestDistributionChart } from './components/EndpointRequestDistributionChart';
 
 ChartJS.register(ArcElement, Tooltip);
 
-export default function page() {
+export default function Page() {
 
 
   const searchParams = useSearchParams()

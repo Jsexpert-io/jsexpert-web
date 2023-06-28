@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { lightGreen, red } from '@mui/material/colors';
 
 ChartJS.register(ArcElement, Tooltip,Title ,Legend );
-export default function RequestCountChart() {
+export const RequestCountChart =()=> {
     const searchParams = useSearchParams()
 
     const path: any = searchParams.get('path')

@@ -1,4 +1,6 @@
+
 import React from 'react'
+import { AppLayout } from './AppLayout'
 
 export default function layout({children}:any) {
   return (
@@ -6,6 +8,13 @@ export default function layout({children}:any) {
     to-indigo-200
     from-primary-300
 
-    flex h-screen w-screen justify-center  p-16'>{children}</div>
+    flex h-screen w-screen justify-center  p-16'>
+      <AppLayout>
+      {children}
+      </AppLayout>
+     </div>
   )
 }
+
+
+
