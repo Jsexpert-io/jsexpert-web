@@ -3,7 +3,7 @@ import { store } from './store';
 import { removeUser } from './features/user.feature';
 import { logout } from './features/auth.feature';
 
-const devMode = process.env.NODE_ENV !== 'development';
+const devMode = process.env.NODE_ENV === 'development';
 export const apiSlice = createApi({
     //reducerPath: 'api', //optional
     baseQuery: fetchBaseQuery({
