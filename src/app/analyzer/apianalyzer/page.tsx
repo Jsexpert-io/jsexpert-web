@@ -8,16 +8,21 @@ import {
 import React from 'react'
 import RequestDistribution from './components/RequestDistributions'
 import MemoryUsageTrendChart from './components/MemoryUsageTrendChart'
+import { EndpointsTable } from './endpoint/components/EndpointsTable'
 
 export default function page() {
- // const {data: requestDistributionData } = useGetRequestDistributionQuery()
+  // const {data: requestDistributionData } = useGetRequestDistributionQuery()
 
   return (
-    <div className='flex space-x-4 w-full'>
-      <div className='grid md:grid-cols-4 gap-8 w-full grid-cols-1'>
-      <RequestDistribution />
-      <MemoryUsageTrendChart/>
-    </div>
+    <div className='flex flex-col space-y-4 w-full'>
+      <div className='grid md:grid-cols-3 gap-16 w-full grid-cols-1'>
+        <RequestDistribution />
+        <RequestDistribution />
+        <RequestDistribution />
+
+        {/* <MemoryUsageTrendChart/> */}
+      </div>
+      <EndpointsTable />
     </div>
 
   )

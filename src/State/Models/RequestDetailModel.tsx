@@ -1,4 +1,5 @@
 interface RequestObject {
+    reqDate: MomentInput;
     path: string;
     method: string;
     params: { [key: string]: string };

@@ -153,7 +153,7 @@ export default function Example() {
                 </div>
               </div>
               <div className="text-center">
-                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                <h1 className="text-display-xl font-bold tracking-tight text-white ">
                   Unleash the Full Potential of Your APIs
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
@@ -465,7 +465,9 @@ export default function Example() {
           </div>
         </div>
       </footer>
+ 
     </div>
+    
   )
 }
 

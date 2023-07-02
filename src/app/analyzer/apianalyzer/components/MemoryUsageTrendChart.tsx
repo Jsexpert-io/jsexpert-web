@@ -40,12 +40,14 @@ export const options = {
         }
     },
 };
-const MemoryUsageTrendChart = () => {
-    const { data }: any = useGetMemoryUsageTrendQuery()
-
+const MemoryUsageTrendChart = ({data}) => {
+    
+    
     if (!data) return null;
     const chartLabels = data.map((entry: any) => entry.date);
-    const chartDataPoints = data.map((entry: any) => (entry.avgMemoryUsage / 1000000).toFixed(2));
+    const chartDataPoints = (data )
+   
+    .map((entry: any) => (entry.avgMemoryUsage / 1000000).toFixed(2));
 
     // Set up the chart configuration
     const chartConfig = {
@@ -56,19 +58,16 @@ const MemoryUsageTrendChart = () => {
                 data: chartDataPoints,
                 fill: false,
                 color: '#000',
-                borderWidth: 2,
-                borderColor: '#7e3af2',
-                tension: 0.4,
+                borderWidth: 1,
+                borderColor: 'green',
+                tension: 0.8,
                 backgroundColor: '#000',
             },
         ],
     };
     console.log(chartConfig)
     return (
-        <div className='flex flex-col
-        justify-center items-center
-        space-y-4 p-2 bg-green-50  shadow rounded-lg '>
-
+       
 
             <Line
                 options={{...options,scales:{
@@ -80,11 +79,12 @@ const MemoryUsageTrendChart = () => {
                             display:false
                         },
                         ticks:{
-                            display:false
+                            display:false,
+                  
                         }
                     },
                     y:{
-                        beginAtZero:true,
+                        //beginAtZero:true,
                         border:{
                             display:false
                         },
@@ -95,13 +95,13 @@ const MemoryUsageTrendChart = () => {
                         },  
                         ticks:{
                             display:false,
-                            stepSize:20,
+                            stepSize:200,
                             
                         }
                     }
                 }}}
                 data={chartConfig} />
-        </div>
+     
     );
 };
 

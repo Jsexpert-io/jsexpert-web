@@ -18,13 +18,9 @@ import {
   UsersIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { Lato } from 'next/font/google'
 
-const font = Lato({
-  subsets: ['latin'],
-  weight: '400',
 
-})
+
 
 const apinavigation = [
   { name: 'Endpoint Analyser', href: '/analyzer/apianalyzer/endpoint', icon: ChartBarIcon, current: true },
@@ -45,14 +41,18 @@ const dbnavigation = [
 ]
 export default function ApiAnalyzerLayout({ children, type }: any) {
   return (
-    <div className={`${font.className} bg-primary-950 text-gray-100 flex flex-col`}>
-      <Header />
-      <div className=' flex'>
+    <div className={` bg-gray-950 text-gray-100 flex flex-col`}>
+
+      <div className=' flex mt-2'>
 
 
         <Sidebar navigation={type == 'api' ? apinavigation : dbnavigation} />
-        <div className='text-gray-800 p-8 flex-1  md:rounded-l-3xl bg-white'>
-          {children}</div>
+        <div className='text-gray-800 bg-white px-8 py-4 flex-1  md:rounded-l-xl'>
+          <div className='mb-8'>
+            <Header />
+          </div>
+          {children}
+        </div>
       </div>
     </div>
   )

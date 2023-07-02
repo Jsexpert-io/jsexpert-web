@@ -1,10 +1,10 @@
 import { ThemeProvider } from '@mui/material'
 import React from 'react'
 import './globals.css'
-import { Inter } from 'next/font/google'
+
 import Applayout from '@/app/landingpagecomponents/Applayout'
 
-const inter = Inter({ subsets: ['latin'] })
+
 
 export const metadata = {
   title: 'Js Analyzer - Analyze your express APIs',
@@ -22,12 +22,14 @@ export default function RootLayout({
 
       <head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-       
-      </head>
-      <body className="h-full">
-        <Applayout>
-        {children}</Applayout>
-      </body>
-    </html>
-  )
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+          <link rel="preconnect" href="https://fonts.gstatic.com"/>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville&family=Merriweather&display=swap" rel="stylesheet" />
+          </head>
+          <body className="h-full">
+            <Applayout>
+              {children}</Applayout>
+          </body>
+        </html>
+        )
 }
