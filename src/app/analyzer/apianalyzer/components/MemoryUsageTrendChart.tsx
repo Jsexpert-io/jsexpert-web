@@ -40,7 +40,7 @@ export const options = {
         }
     },
 };
-const MemoryUsageTrendChart = ({data}) => {
+const MemoryUsageTrendChart = ({data}:any) => {
     
     
     if (!data) return null;
