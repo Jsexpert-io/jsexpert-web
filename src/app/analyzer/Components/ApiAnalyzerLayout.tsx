@@ -32,7 +32,7 @@ const apinavigation = [
 ]
 
 const dbnavigation = [
-  { name: 'Queries Analyser', href: '/analyzer/apianalyzer/endpoint', icon: ChartBarIcon, current: true },
+  { name: 'Queries Analyser', href: '/analyzer/dbanalyzer/endpoint', icon: ChartBarIcon, current: true },
   { name: 'Patterns', href: '/analyzer/apianalyzer/pattern', icon: ChartPieIcon, current: false },
 
   { name: 'Insights', href: '/analyzer/apianalyzer/insight', icon: LightBulbIcon, current: false },

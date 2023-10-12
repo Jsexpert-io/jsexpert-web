@@ -7,20 +7,20 @@ const devMode = process.env.NODE_ENV === 'development';
 export const apiSlice = createApi({
     //reducerPath: 'api', //optional
     baseQuery: fetchBaseQuery({
-        
+
         baseUrl: devMode ?
-        'http://localhost:3001':'https://api.jsexpert.io',
-        responseHandler:(response)=>{
-            console.log('response',response);
-            
-            if(response.status === 401){
+            'http://localhost:3001' : 'https://api.jsexpert.io',
+        responseHandler: (response) => {
+            console.log('response', response);
+
+            if (response.status === 401) {
                 logout()
 
             }
             return response.json()
         },
         prepareHeaders: (headers, { getState }) => {
-          
+
             const token = (getState() as any)?.userState?.token;
             const project = (getState() as any)?.projectState?.project;
 
@@ -35,7 +35,7 @@ export const apiSlice = createApi({
             return headers;
         }
     }),
-    tagTypes: ['Auth', 'category', 'APIDATA', 'service',
+    tagTypes: ['Auth', 'category', 'APIDATA', 'service',"DBDATA_METRICES",
         'service-provider',
         'Questions', 'Users', 'Projects', 'Project', 'APIDATA_METRICES'],
 

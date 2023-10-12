@@ -1,12 +1,13 @@
 'use client';
 import React, { useEffect } from 'react';
-import { useGetApiDataQuery } from '@/State/apiFeatures/apiperformance.slice';
 import moment from 'moment';
 import { useAppDispatch, useAppSelector } from '@/State/store';
 import Pagination from './pagination';
 import { updateFilter } from '@/State/features/api.matrices.feature';
 import Link from 'next/link';
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid';
+import { useGetDbDataQuery } from '@/State/apiFeatures/dbapiperformance.slice';
+
 export const TableHeader = () => {
   const { apiMetricesFilter } = useAppSelector(state => state.apiMetricesFilterState)
   const dispatch = useAppDispatch()
@@ -35,14 +36,6 @@ export const TableHeader = () => {
         , {
           key: 'Avg Duration',
           value: 'avgDuration'
-        },
-        {
-          key: 'Max Duration',
-          value: 'maxDuration'
-        },
-        {
-          key: 'Min Duration',
-          value: 'minDuration'
         }
         , {
           key: 'Latest Date',
@@ -78,7 +71,7 @@ export const TableHeader = () => {
   </thead>
 }
 export const EndpointsTable = () => {
-  const { data, refetch } = useGetApiDataQuery();
+  const { data, refetch } = useGetDbDataQuery();
   const { project } = useAppSelector(state => state.projectState);
   const { apiMetricesFilter } = useAppSelector(state => state.apiMetricesFilterState);
   const dispatch = useAppDispatch();
