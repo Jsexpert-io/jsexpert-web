@@ -11,7 +11,7 @@ export default function Page() {
         <h4 className="text-2xl font-bold">API Analyzer</h4>
         <p>
           The API Analyzer is a tool that allows you to analyze the performance of your API. It
-          provides a detailed report of the API's performance, including response time, error rate, and
+          provides a detailed report of the APIs performance, including response time, error rate, and
           throughput. You can use this information to identify bottlenecks and optimize your API for
           better performance.
         </p>
