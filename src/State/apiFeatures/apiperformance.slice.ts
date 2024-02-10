@@ -5,7 +5,7 @@ import { store } from "../store";
 interface RequestObject {
 
     path: string;
-    
+
     method: string;
     body: Record<string, unknown>;
     headers: string;
@@ -59,7 +59,7 @@ const apiPerformanceApiSlice = apiSlice.injectEndpoints({
                 query: () => {
                     const { apiMetricesFilter } = store.getState().apiMetricesFilterState;
                     return {
-                        url: '/server-data',
+                        url: '/server-data/v1',
                         params: {
                             sortBy: apiMetricesFilter.sortBy,
                             orderBy: apiMetricesFilter.orderBy,
@@ -74,11 +74,11 @@ const apiPerformanceApiSlice = apiSlice.injectEndpoints({
                 providesTags: ['APIDATA_METRICES']
             }),
             getApiDataByEndpoint: builder.query<RequestDetailModel[], string>({
-                query: (path:string) => {
-                  
+                query: (path: string) => {
+
                     return {
                         url: `/server-data/findByEndpoint?endpoint=${path}`,
-                       
+
                         method: 'GET'
                     }
                 },
@@ -122,7 +122,7 @@ const apiPerformanceApiSlice = apiSlice.injectEndpoints({
 
 });
 
-export const { useGetApiDataQuery , useGetApiDataByEndpointQuery,
+export const { useGetApiDataQuery, useGetApiDataByEndpointQuery,
     useGetRequestDistributionQuery,
     useGetRequestDurationDistributionQuery,
     useGetMemoryUsageTrendQuery,

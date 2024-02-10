@@ -1,6 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { store } from './store';
-import { removeUser } from './features/user.feature';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { logout } from './features/auth.feature';
 
 const devMode = process.env.NODE_ENV === 'development';
@@ -11,7 +9,6 @@ export const apiSlice = createApi({
         baseUrl: devMode ?
             'http://localhost:3001' : 'https://api.jsexpert.io',
         responseHandler: (response) => {
-            console.log('response', response);
 
             if (response.status === 401) {
                 logout()
@@ -35,7 +32,7 @@ export const apiSlice = createApi({
             return headers;
         }
     }),
-    tagTypes: ['Auth', 'category', 'APIDATA', 'service',"DBDATA_METRICES",
+    tagTypes: ['Auth', 'category', 'APIDATA', 'service', "DBDATA_METRICES",
         'service-provider',
         'Questions', 'Users', 'Projects', 'Project', 'APIDATA_METRICES'],
 

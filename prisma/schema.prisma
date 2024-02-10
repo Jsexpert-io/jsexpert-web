@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+type DbdatasData {
+  collectionName         String
+  durationInMilliseconds Int
+  operation              String
+  operationType          String
+  /// Could not determine type: the field only had null or empty values in the sample set.
+  populatedPaths         Json?
+  query                  String?
+}
+
+model aibitscategories {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+model aibitsconceptcards {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+model aibitsconcepts {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+model aibitssubcategories {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+model challanges {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  id Json?  @unique(map: "id_1")
+}
+
+model dbdatas {
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  v         Int         @map("__v")
+  createdAt DateTime    @db.Date
+  data      DbdatasData
+  project   String
+  updatedAt DateTime    @db.Date
+}
+
+
+
+model projects {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  v            Int      @map("__v")
+  clientId     String
+  clientSecret String
+  createdAt    DateTime @db.Date
+  description  String
+  id_          String   @unique(map: "id_1") @map("id")
+  isActive     Boolean
+  name         String
+  updatedAt    DateTime @db.Date
+  user         String
+}
+
+model traces {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+model users {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  v               Int      @map("__v")
+  createdAt       DateTime @db.Date
+  email           String   @unique(map: "email_1")
+  isActive        Boolean
+  isEmailVerified Boolean
+  password        String
+  uniqueKey       String
+  updatedAt       DateTime @db.Date
+}
+

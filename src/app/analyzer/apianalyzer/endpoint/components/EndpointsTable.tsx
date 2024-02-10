@@ -1,12 +1,13 @@
 'use client';
 import React, { useEffect } from 'react';
-import { useGetApiDataQuery } from '@/State/apiFeatures/apiperformance.slice';
+
 import moment from 'moment';
 import { useAppDispatch, useAppSelector } from '@/State/store';
 import Pagination from './pagination';
 import { updateFilter } from '@/State/features/api.matrices.feature';
 import Link from 'next/link';
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid';
+import { useGetApiDataQuery } from '@/State/apiFeatures/apiperformance.slice';
 export const TableHeader = () => {
   const { apiMetricesFilter } = useAppSelector(state => state.apiMetricesFilterState)
   const dispatch = useAppDispatch()
@@ -28,8 +29,9 @@ export const TableHeader = () => {
     <tr>
       {[
         //'Path', 'Avg Duration', 'Latest Date', 'Count'
+       
         {
-          key: 'Path',
+          key: 'Endpoint',
           value: 'endpoint'
         }
         , {
@@ -104,22 +106,18 @@ export const EndpointsTable = () => {
     <table className="mt-6 w-full whitespace-nowrap text-left">
 
       <TableHeader />
-      <tbody className="border-b border-black/10 text-xs leading-6 text-gray-800">
+      <tbody className="border-b border-black/10 leading-6 text-gray-800">
         {data?.paginatedData.map((a, i: number) => {
           return <tr key={i} className="
           
           ">
+            
             <td className="px-6 py-2 whitespace-nowrap">
               <div className='flex '>
-                <div className='flex space-x-2 items-center'>
-                  <div className='text-xs text-gray-600'>{a._id.method}</div>
-                  <div className='px-2  rounded-full bg-green-300/30'>
-                  <Link
+              <Link
                     href={`/analyzer/apianalyzer/endpoint/details?path=${a._id.endpoint}`}
-                    className='text-2xs  leading-loose text-green-800'>
+                    className='text-sm  leading-loose text-gray-800'>
                     {a._id.endpoint}</Link>
-                    </div>
-                </div>
               </div>
             </td>
             <td className="px-6 py-2 whitespace-nowrap">

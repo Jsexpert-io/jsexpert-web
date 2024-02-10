@@ -1,34 +1,36 @@
+
+
 'use client'
-import Image from 'next/image';
-import LogoBlack from '../../../../public/logob.png';
-import Link from 'next/link';
-import { ChangeEventHandler, useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '@/State/store';
-import { useLoginMutation, useRegisterMutation } from '@/State/apiFeatures/auth.apislice';
+import { useLoginMutation } from '@/State/apiFeatures/auth.apislice';
 import { setUserFailure, setUserStart, setUserSuccess } from '@/State/features/user.feature';
+import { useAppDispatch, useAppSelector } from '@/State/store';
+import { Alert } from '@mui/material';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useSnackbar } from 'notistack';
-import { Alert } from '@mui/material';
+import { useEffect, useState } from 'react';
+import LogoBlack from '../../../../public/logob.png';
 export default function Example() {
   const dispatch = useAppDispatch()
   const { enqueueSnackbar } = useSnackbar()
   const router = useRouter()
   const [loginapi] = useLoginMutation()
-  const { error, user:loggedInUser, loading } = useAppSelector(state => state.userState)
+  const { error, user: loggedInUser, loading } = useAppSelector(state => state.userState)
   const [user, setUser] = useState({
     email: '',
     password: '',
   })
   useEffect(() => {
-    if (loggedInUser?._id) {
+    if (loggedInUser?.id) {
       router.push('/project')
     }
-  
+
     return () => {
-      
+
     }
   }, [loggedInUser])
-  
+
 
   const onChange = (event: any) => {
 
@@ -43,14 +45,14 @@ export default function Example() {
       dispatch(setUserStart())
 
 
-      const data :any= await loginapi(user).unwrap()
+      const data: any = await loginapi(user).unwrap()
       console.log(data);
-      
+
       dispatch(setUserSuccess(data))
 
-    } catch (error:any) {
+    } catch (error: any) {
 
-
+      console.log(error)
       dispatch(setUserFailure(error?.data?.message || error?.message || 'Something went wrong'))
     }
 

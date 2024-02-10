@@ -1,13 +1,6 @@
 
 'use client'
-import {
-  useGetRequestDistributionQuery
-  , useGetMemoryUsageTrendQuery, useErrorStatusCodeDitributionQuery,
-  useGetRequestDurationDistributionQuery
-} from '@/State/apiFeatures/apiperformance.slice'
-import React from 'react'
 import RequestDistribution from './components/RequestDistributions'
-import MemoryUsageTrendChart from './components/MemoryUsageTrendChart'
 import { EndpointsTable } from './endpoint/components/EndpointsTable'
 
 export default function page() {

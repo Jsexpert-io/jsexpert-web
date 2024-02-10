@@ -1,10 +1,9 @@
-import { Fragment, useEffect, useState } from 'react'
+import { useGetProjectsQuery } from '@/State/apiFeatures/project.apislice'
+import { setProject } from '@/State/features/project.feature'
+import { useAppDispatch, useAppSelector } from '@/State/store'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
-import { useGetProjectsQuery } from '@/State/apiFeatures/project.apislice'
-import { useAppDispatch, useAppSelector } from '@/State/store'
-import { CheckBadgeIcon } from '@heroicons/react/24/outline'
-import { setProject } from '@/State/features/project.feature'
+import { Fragment } from 'react'
 const people = [
     { name: 'Wade Cooper' },
     { name: 'Arlene Mccoy' },
@@ -19,8 +18,8 @@ export default function ProjectListDropDown() {
     const { project } = useAppSelector(state => state.projectState)
     const dispatch = useAppDispatch()
 
-    const onProjectNavigate = (project: any) => {
-        dispatch(setProject(project))
+    const onProjectNavigate = (projectNew: any) => {
+        dispatch(setProject(projectNew))
 
     }
 
@@ -52,7 +51,7 @@ export default function ProjectListDropDown() {
                         <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto
                          rounded-md bg-white py-1 text-base shadow-lg ring-1
                           ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                            { data && data?.map((proj, personIdx) => (
+                            {data && data?.map((proj, personIdx) => (
                                 <Listbox.Option
                                     key={proj._id}
                                     className={({ active }) =>

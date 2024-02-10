@@ -97,7 +97,7 @@ export const EndpointsTable = () => {
     <table className="mt-6 w-full whitespace-nowrap text-left">
 
       <TableHeader />
-      <tbody className="border-b border-black/10 text-xs leading-6 text-gray-800">
+      <tbody className="border-b border-black/10  leading-6 text-gray-800">
         {data?.paginatedData.map((a, i: number) => {
           return <tr key={i} className="
           
@@ -105,11 +105,11 @@ export const EndpointsTable = () => {
             <td className="px-6 py-2 whitespace-nowrap">
               <div className='flex '>
                 <div className='flex space-x-2 items-center'>
-                  <div className='text-xs text-gray-600'>{a._id.method}</div>
+                  <div className='text-sm text-gray-600'>{a._id.method}</div>
                   <div className='px-2  rounded-full bg-green-300/30'>
                   <Link
                     href={`/analyzer/apianalyzer/endpoint/details?path=${a._id.endpoint}`}
-                    className='text-2xs  leading-loose text-green-800'>
+                    className='text-sm  leading-loose text-green-800'>
                     {a._id.endpoint}</Link>
                     </div>
                 </div>
@@ -118,12 +118,7 @@ export const EndpointsTable = () => {
             <td className="px-6 py-2 whitespace-nowrap">
               {(a.avgDuration / 1000).toFixed(2)} s
             </td>
-            <td className="px-6 py-2 whitespace-nowrap">
-              {(a.maxDuration / 1000).toFixed(2)} s
-            </td>
-            <td className="px-6 py-2 whitespace-nowrap">
-              {(a.minDuration / 1000).toFixed(2)} s
-            </td>
+           
             <td className="px-6 py-2 whitespace-nowrap">
               {moment(a.latestRequestDate).format('DD-MM-YYYY HH:mm:ss')}
             </td>

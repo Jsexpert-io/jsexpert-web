@@ -1,12 +1,10 @@
-import * as React from 'react';
+import { useCreateProjectMutation } from '@/State/apiFeatures/project.apislice';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useCreateProjectMutation } from '@/State/apiFeatures/project.apislice';
+import * as React from 'react';
 
 export default function CreateNewProject({ open, setOpen }: any) {
 
@@ -31,6 +29,7 @@ export default function CreateNewProject({ open, setOpen }: any) {
     }
     const onProjectCreate = async () => {
         const data = await createProjectApi(project).unwrap()
+        console.log(data)
     }
     return (
         <div>
@@ -69,7 +68,7 @@ export default function CreateNewProject({ open, setOpen }: any) {
                                             name="description"
                                             value={project.description}
                                             onChange={onChange}
-                              
+
                                             rows={3}
                                             required
                                             className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -85,16 +84,16 @@ export default function CreateNewProject({ open, setOpen }: any) {
                 </DialogContent>
                 <DialogActions>
                     <Button
-                    variant='outlined'
-                    size='small'
-                    color='primary'
-                    onClick={handleClose}>Cancel</Button>
+                        variant='outlined'
+                        size='small'
+                        color='primary'
+                        onClick={handleClose}>Cancel</Button>
                     <Button
-                    size='small'
-                    color='primary'
+                        size='small'
+                        color='primary'
 
-                    variant='outlined'
-                    onClick={onProjectCreate}>Create</Button>
+                        variant='outlined'
+                        onClick={onProjectCreate}>Create</Button>
                 </DialogActions>
             </Dialog>
         </div>
