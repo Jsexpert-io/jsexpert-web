@@ -88,7 +88,7 @@ export const EndpointsTable = () => {
 
     return () => {
     };
-  }, [project, apiMetricesFilter]);
+  }, [project, apiMetricesFilter,refetch]);
 
   if (!data) {
     return null;

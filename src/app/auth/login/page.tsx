@@ -29,7 +29,7 @@ export default function Example() {
     return () => {
 
     }
-  }, [loggedInUser])
+  }, [loggedInUser,router])
 
 
   const onChange = (event: any) => {

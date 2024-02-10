@@ -73,7 +73,7 @@ const jsexpertSdkInstance = new NodeSDK({
     }),
   ],
   resource: new Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: "${project.name}-server",
+    [SemanticResourceAttributes.SERVICE_NAME]: "${project?.name}-server",
   }),
 });
 
