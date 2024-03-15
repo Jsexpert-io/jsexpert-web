@@ -47,7 +47,7 @@ if (import.meta) {
     //@ts-expect-error
     "app/routes/_index.tsx"
   );
-  import.meta.hot.lastModified = "1710506976266.3171";
+  import.meta.hot.lastModified = "1710508207842.9763";
 }
 var footerNavigation = {
   solutions: [{
@@ -395,19 +395,19 @@ function Example() {
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mt-32 sm:mt-56", children: [
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mx-auto max-w-7xl px-6 lg:px-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mx-auto max-w-2xl sm:text-center", children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h2", { className: "text-base font-semibold leading-7 text-indigo-600", children: "Everything you need" }, void 0, false, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h2", { className: "text-base font-semibold leading-7 text-indigo-600", children: "Make sense of your insights" }, void 0, false, {
             fileName: "app/routes/_index.tsx",
             lineNumber: 226,
             columnNumber: 15
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { className: "mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl", children: "No server? No problem." }, void 0, false, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { className: "mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl", children: "Monitor, Analyze, and Improve your API and Database Performance" }, void 0, false, {
             fileName: "app/routes/_index.tsx",
             lineNumber: 227,
             columnNumber: 15
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { className: "mt-6 text-lg leading-8 text-gray-600", children: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis." }, void 0, false, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { className: "mt-6 text-lg leading-8 text-gray-600", children: "Our platform provides a comprehensive set of tools to help you understand and optimize your API and MongoDB performance. Gain deep insights into key performance metrics, identify usage patterns, and troubleshoot errors to ensure seamless API operations." }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 228,
+            lineNumber: 230,
             columnNumber: 15
           }, this)
         ] }, void 0, true, {
@@ -420,59 +420,59 @@ function Example() {
           columnNumber: 11
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "relative overflow-hidden pt-16", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mx-auto max-w-7xl px-6 lg:px-8", children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("img", { src: "https://tailwindui.com/img/component-images/project-app-screenshot.png", alt: "App screenshot", className: "mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10", width: 2432, height: 1442 }, void 0, false, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("img", { src: "/images/dashboard.png", alt: "App screenshot", className: "mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10", width: 2432, height: 1442 }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 236,
+            lineNumber: 237,
             columnNumber: 15
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "relative", "aria-hidden": "true", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]" }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 238,
+            lineNumber: 239,
             columnNumber: 17
           }, this) }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 237,
+            lineNumber: 238,
             columnNumber: 15
           }, this)
         ] }, void 0, true, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 235,
+          lineNumber: 236,
           columnNumber: 13
         }, this) }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 234,
+          lineNumber: 235,
           columnNumber: 11
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("dl", { className: "mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16", children: features.map((feature) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "relative pl-9", children: [
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("dt", { className: "inline font-semibold text-gray-900", children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(feature.icon, { className: "absolute left-1 top-1 h-5 w-5 text-indigo-600", "aria-hidden": "true" }, void 0, false, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 246,
+              lineNumber: 247,
               columnNumber: 21
             }, this),
             feature.name
           ] }, void 0, true, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 245,
+            lineNumber: 246,
             columnNumber: 19
           }, this),
           " ",
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("dd", { className: "inline", children: feature.description }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 249,
+            lineNumber: 250,
             columnNumber: 19
           }, this)
         ] }, feature.name, true, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 244,
+          lineNumber: 245,
           columnNumber: 40
         }, this)) }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 243,
+          lineNumber: 244,
           columnNumber: 13
         }, this) }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 242,
+          lineNumber: 243,
           columnNumber: 11
         }, this)
       ] }, void 0, true, {
@@ -488,13 +488,13 @@ function Example() {
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("footer", { className: "mt-32 bg-gray-900 sm:mt-56", "aria-labelledby": "footer-heading", children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h2", { id: "footer-heading", className: "sr-only", children: "Footer" }, void 0, false, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 261,
+        lineNumber: 262,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "xl:grid xl:grid-cols-3 xl:gap-8", children: [
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("img", { className: "h-7", src: "https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500", alt: "Company name" }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 266,
+          lineNumber: 267,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0", children: [
@@ -502,127 +502,127 @@ function Example() {
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { children: [
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { className: "text-sm font-semibold leading-6 text-white", children: "Solutions" }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 270,
+                lineNumber: 271,
                 columnNumber: 19
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("ul", { role: "list", className: "mt-6 space-y-4", children: footerNavigation.solutions.map((item) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("a", { href: item.href, className: "text-sm leading-6 text-gray-300 hover:text-white", children: item.name }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 273,
+                lineNumber: 274,
                 columnNumber: 25
               }, this) }, item.name, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 272,
+                lineNumber: 273,
                 columnNumber: 61
               }, this)) }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 271,
+                lineNumber: 272,
                 columnNumber: 19
               }, this)
             ] }, void 0, true, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 269,
+              lineNumber: 270,
               columnNumber: 17
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mt-10 md:mt-0", children: [
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { className: "text-sm font-semibold leading-6 text-white", children: "Support" }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 280,
+                lineNumber: 281,
                 columnNumber: 19
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("ul", { role: "list", className: "mt-6 space-y-4", children: footerNavigation.support.map((item) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("a", { href: item.href, className: "text-sm leading-6 text-gray-300 hover:text-white", children: item.name }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 283,
+                lineNumber: 284,
                 columnNumber: 25
               }, this) }, item.name, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 282,
+                lineNumber: 283,
                 columnNumber: 59
               }, this)) }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 281,
+                lineNumber: 282,
                 columnNumber: 19
               }, this)
             ] }, void 0, true, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 279,
+              lineNumber: 280,
               columnNumber: 17
             }, this)
           ] }, void 0, true, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 268,
+            lineNumber: 269,
             columnNumber: 15
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "md:grid md:grid-cols-2 md:gap-8", children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { children: [
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { className: "text-sm font-semibold leading-6 text-white", children: "Company" }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 292,
+                lineNumber: 293,
                 columnNumber: 19
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("ul", { role: "list", className: "mt-6 space-y-4", children: footerNavigation.company.map((item) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("a", { href: item.href, className: "text-sm leading-6 text-gray-300 hover:text-white", children: item.name }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 295,
+                lineNumber: 296,
                 columnNumber: 25
               }, this) }, item.name, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 294,
+                lineNumber: 295,
                 columnNumber: 59
               }, this)) }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 293,
+                lineNumber: 294,
                 columnNumber: 19
               }, this)
             ] }, void 0, true, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 291,
+              lineNumber: 292,
               columnNumber: 17
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mt-10 md:mt-0", children: [
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { className: "text-sm font-semibold leading-6 text-white", children: "Legal" }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 302,
+                lineNumber: 303,
                 columnNumber: 19
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("ul", { role: "list", className: "mt-6 space-y-4", children: footerNavigation.legal.map((item) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("a", { href: item.href, className: "text-sm leading-6 text-gray-300 hover:text-white", children: item.name }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 305,
+                lineNumber: 306,
                 columnNumber: 25
               }, this) }, item.name, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 304,
+                lineNumber: 305,
                 columnNumber: 57
               }, this)) }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 303,
+                lineNumber: 304,
                 columnNumber: 19
               }, this)
             ] }, void 0, true, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 301,
+              lineNumber: 302,
               columnNumber: 17
             }, this)
           ] }, void 0, true, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 290,
+            lineNumber: 291,
             columnNumber: 15
           }, this)
         ] }, void 0, true, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 267,
+          lineNumber: 268,
           columnNumber: 13
         }, this)
       ] }, void 0, true, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 265,
+        lineNumber: 266,
         columnNumber: 11
       }, this) }, void 0, false, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 264,
+        lineNumber: 265,
         columnNumber: 9
       }, this)
     ] }, void 0, true, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 260,
+      lineNumber: 261,
       columnNumber: 7
     }, this)
   ] }, void 0, true, {
@@ -640,4 +640,4 @@ window.$RefreshSig$ = prevRefreshSig;
 export {
   Example as default
 };
-//# sourceMappingURL=/build/routes/_index-WEXEN6MC.js.map
+//# sourceMappingURL=/build/routes/_index-CDVGDGJT.js.map
