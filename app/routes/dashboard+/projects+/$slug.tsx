@@ -38,7 +38,7 @@ export default function ProjectDetail() {
             {/* We've used 3xl here, but feel free to try other max-widths based on your needs */}
 
             <ProjectDetailTabs project={project} />
-            <main className="">
+            <main className="max-w-7xl p-4">
                 <Outlet />
             </main>
         </div>
