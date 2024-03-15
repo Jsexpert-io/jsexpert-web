@@ -1,0 +1,4 @@
+DATABASE_URL='postgres://postgres:eMoH0mR1E3X1dHYxBNI3ic9KnolfOhvqFjQxNLGpGBwvK0lohbUzjX3kNP5GQVzg@64.227.137.36:5431/js-expert-new-db'
+CLICKHOUSE_URL=64.227.137.36
+CLICKHOUSE_PORT=8123
+APP_URL=http://localhost:3000
