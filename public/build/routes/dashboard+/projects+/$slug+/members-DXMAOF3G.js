@@ -1,13 +1,11 @@
 import {
+  XMarkIcon_default,
+  _t,
   qe
-} from "/build/_shared/chunk-EHNHN7LZ.js";
+} from "/build/_shared/chunk-KQ4DNAMX.js";
 import {
   require_auth
 } from "/build/_shared/chunk-6F6PMZ7E.js";
-import {
-  XMarkIcon_default,
-  _t
-} from "/build/_shared/chunk-WCAGU2R2.js";
 import {
   Form,
   useLoaderData,
@@ -412,4 +410,4 @@ window.$RefreshSig$ = prevRefreshSig;
 export {
   Example2 as default
 };
-//# sourceMappingURL=/build/routes/dashboard+/projects+/$slug+/members-YIGS3SK3.js.map
+//# sourceMappingURL=/build/routes/dashboard+/projects+/$slug+/members-DXMAOF3G.js.map

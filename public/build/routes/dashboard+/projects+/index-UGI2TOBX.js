@@ -1,17 +1,15 @@
 import {
+  CheckCircleIcon_default,
+  XMarkIcon_default as XMarkIcon_default2,
+  _t,
   qe
-} from "/build/_shared/chunk-EHNHN7LZ.js";
+} from "/build/_shared/chunk-KQ4DNAMX.js";
 import {
   require_project
 } from "/build/_shared/chunk-FGSXWGNP.js";
 import {
   require_auth
 } from "/build/_shared/chunk-6F6PMZ7E.js";
-import {
-  CheckCircleIcon_default,
-  XMarkIcon_default as XMarkIcon_default2,
-  _t
-} from "/build/_shared/chunk-WCAGU2R2.js";
 import {
   PencilSquareIcon_default,
   PlusIcon_default,
@@ -732,4 +730,4 @@ window.$RefreshSig$ = prevRefreshSig;
 export {
   Hello as default
 };
-//# sourceMappingURL=/build/routes/dashboard+/projects+/index-HSSQL62Z.js.map
+//# sourceMappingURL=/build/routes/dashboard+/projects+/index-UGI2TOBX.js.map
