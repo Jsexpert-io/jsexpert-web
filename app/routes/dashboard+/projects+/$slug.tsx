@@ -1,7 +1,7 @@
 
 import type { LoaderFunction, LoaderFunctionArgs } from '@remix-run/node';
 import { Link, Outlet, redirect, useLoaderData, useLocation } from '@remix-run/react';
-import ProjectDetailTabs from '~/components/projects/projectDetails/projectTabs';
+import ProjectMenuItems from '~/components/projects/projectDetails/projectMenuItems';
 import { requireUser } from '~/server/services/auth.server';
 import { ProjectService } from '~/server/services/project.server';
 
@@ -34,13 +34,16 @@ export default function ProjectDetail() {
     const { pathname } = useLocation()
     let currentTabname: any = pathname.split('/').pop()
     return (
-        <div className="mx-auto ">
+        <div className=" mx-16 min-h-screen">
             {/* We've used 3xl here, but feel free to try other max-widths based on your needs */}
+            <div className='flex space-x-4 h-full'>
+                <ProjectMenuItems project={project} currentTab={currentTab} />
+                {/* <ProjectDetailTabs project={project} /> */}
+                <main className="w-full p-8 border">
+                    <Outlet />
+                </main>
+            </div>
 
-            <ProjectDetailTabs project={project} />
-            <main className="max-w-7xl p-4">
-                <Outlet />
-            </main>
         </div>
 
     )

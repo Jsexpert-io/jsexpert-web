@@ -7,13 +7,13 @@ import {
     HomeIcon,
     UsersIcon
 } from '@heroicons/react/24/outline'
-import { Outlet, useLoaderData } from '@remix-run/react'
+import { Outlet, useLoaderData, useLocation } from '@remix-run/react'
 
 const navigation = [
 
     { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
     { name: 'Projects', href: '/dashboard/projects', icon: FolderIcon, current: false },
-    { name: 'Team', href: '#', icon: UsersIcon, current: false },
+    { name: 'Team', href: '/dashboard/Team', icon: UsersIcon, current: false },
 
     { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
     { name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false },
@@ -33,9 +33,7 @@ function classNames(...classes) {
 import type { LoaderFunctionArgs } from '@remix-run/node'
 import { getNavigationForUser, requireUser } from '~/server/services/auth.server'
 import { ProjectService } from '~/server/services/project.server'
-import { MobileSideBarButton } from './dashboard+/dashboardLayoutComponents/mobileSideBar'
-import Navbar from './dashboard+/dashboardLayoutComponents/navbar'
-import { SideBar } from './dashboard+/dashboardLayoutComponents/sideBar'
+import SideBar from './dashboard+/dashboardLayoutComponents/sideBar'
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 
     const user = await requireUser(request)
@@ -48,53 +46,37 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
         user,
         navigations,
         projects,
-        current
+        current,
+        slug: params?.slug
     }
 }
 
 export default function Example() {
-    const { user, navigations, projects, current } = useLoaderData()
-
+    const { user, navigations, projects, current, slug } = useLoaderData()
+    const { pathname } = useLocation()
 
     return (
         <>
+            {/* navigation, teams, showNavigations, projects, currentProject, setCurrentProject, user */}
 
-            <div>
 
 
-                <SideBar
-                    navigation={navigation}
-                    teams={teams}
-                    showNavigations={navigations}
-                    projects={projects}
-                    currentProject={current}
-                    setCurrentProject={() => {
-                        console.log('set current project')
-                    }}
-                />
-                <div className="lg:pl-72">
-                    <div className="sticky top-0 z-40 
-                    flex h-16 shrink-0 items-center gap-x-4 border-b
-                     border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
-                        <MobileSideBarButton
-                            navigation={navigation}
-                            showNavigations={navigations}
-                            teams={teams}
-                        />
+            <SideBar
+                navigation={navigation}
+                teams={teams}
+                showNavigations={navigations}
+                projects={projects}
+                currentProject={current}
+                setCurrentProject={() => {
+                    console.log('set current project')
+                }}
+                user={user}
+                currentPath={`${pathname}`}
+            />
+            <main className=" p-8">
+                <Outlet />
+            </main>
 
-                        {/* Separator */}
-                        <div className="h-6 w-px bg-gray-200 lg:hidden" aria-hidden="true" />
-
-                        <Navbar
-                            user={user}
-                        />
-                    </div>
-
-                    <main className="">
-                        <Outlet />
-                    </main>
-                </div>
-            </div>
         </>
     )
 }
