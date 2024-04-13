@@ -17,7 +17,7 @@ export const loader: LoaderFunction = async ({ request, params }: LoaderFunction
 
     const allowedTabs = ['details', 'members', 'settings', 'billing', 'analytics']
     const pathname = url.split('?')[0]
-    let currentTabname: any = pathname.split('/').pop()
+    const currentTabname: any = pathname.split('/').pop()
     if (!allowedTabs.includes(currentTabname)) {
         return redirect(pathname + '/details')
     }
@@ -32,14 +32,14 @@ export const loader: LoaderFunction = async ({ request, params }: LoaderFunction
 export default function ProjectDetail() {
     const { project, currentTab } = useLoaderData()
     const { pathname } = useLocation()
-    let currentTabname: any = pathname.split('/').pop()
+    const currentTabname: any = pathname.split('/').pop()
     return (
-        <div className=" mx-16 min-h-screen">
+        <div className="h-full">
             {/* We've used 3xl here, but feel free to try other max-widths based on your needs */}
             <div className='flex space-x-4 h-full'>
                 <ProjectMenuItems project={project} currentTab={currentTab} />
                 {/* <ProjectDetailTabs project={project} /> */}
-                <main className="w-full p-8 border">
+                <main className="w-10/12 p-8  min-h-[85vh] ">
                     <Outlet />
                 </main>
             </div>

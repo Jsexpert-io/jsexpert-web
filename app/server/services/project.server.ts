@@ -119,13 +119,25 @@ export class ProjectService {
                     select: {
                         email: true
                     }
-                }
+                },
+                id: true,
             }
 
         })
 
     }
+    findProjectIDBySlug(slug: string) {
+        return prisma.project.findUnique({
+            where: {
+                slug
+            },
+            select: {
+                id: true,
+            }
 
+        })
+
+    }
     update(id: string, updateprojectDto: CreateProjectDto) {
         return prisma.project.update({
             where: {
