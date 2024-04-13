@@ -2,6 +2,7 @@ import { CircleStackIcon, TrashIcon, TvIcon, UsersIcon } from '@heroicons/react/
 import {
     Bars2Icon
 } from '@heroicons/react/24/outline'
+import { Link } from '@remix-run/react'
 
 
 
@@ -12,7 +13,8 @@ function classNames(...classes) {
 
 export default function Example({ project, currentTab }: {
     project: {
-        slug: string
+        slug: string,
+        id: string
     },
     currentTab: string
 }) {
@@ -120,15 +122,15 @@ export default function Example({ project, currentTab }: {
                         </ul>
                     </li>
                     <li className="w-full mt-auto ">
-                        <a
-                            href="#"
+                        <Link
+                            to={`/dashboard/projects?action=delete&projectId=${project.id}`}
                             className="flex items-center bg-red-400 rounded-md gap-x-4 px-6 py-3
                              text-sm font-semibold leading-6 text-gray-100 hover:bg-red-600"
                         >
 
                             <TrashIcon className="h-6 w-6 shrink-0" aria-hidden="true" />
                             <span aria-hidden="true">Delete Project</span>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </nav>
