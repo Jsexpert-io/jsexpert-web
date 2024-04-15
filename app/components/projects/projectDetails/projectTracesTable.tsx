@@ -1,4 +1,5 @@
 
+import { Link } from '@remix-run/react'
 import moment from 'moment'
 export default function ProjectTracesTable({ traces }: {
     traces: any[]
@@ -24,7 +25,8 @@ export default function ProjectTracesTable({ traces }: {
                                         Name
                                     </th>
                                     <th scope="col" className="px-4 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                        Path
+                                        Duration
+                                        (milliseconds)
                                     </th>
                                     <th scope="col" className="px-4 py-3.5 text-left text-sm font-semibold text-gray-900">
                                         StartTime
@@ -41,22 +43,30 @@ export default function ProjectTracesTable({ traces }: {
                                 {traces.map((trace) => (
                                     <tr key={trace.id} className="divide-x divide-gray-200">
                                         <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-0">
-                                            {trace.name}
+                                            <div className='flex flex-col gap-y-2'>
+                                                <span>{trace.name}</span>
+                                                <span className='text-xs font-light text-green-800'>{trace.path}</span>
+                                            </div>
                                         </td>
 
                                         <td className="whitespace-nowrap p-4 text-sm text-gray-500">{
-                                            JSON.stringify(trace.path)
+                                            trace.duration
                                         }</td>
                                         <td className="whitespace-nowrap p-4 text-sm text-gray-500">{
-                                            moment(trace.startTime / 1000000).format('dddd, MMMM Do YYYY, h:mm:ss a')
+                                            moment(trace.startTime / 1000000).format('DD-MM-YYYY, h:mm:ss a')
                                         }</td>
                                         <td className="whitespace-nowrap p-4 text-sm text-gray-500">{
 
-                                            moment(trace.endTime / 1000000).format('dddd, MMMM Do YYYY, h:mm:ss a')
+                                            moment(trace.endTime / 1000000).format('DD-MM-YYYY, h:mm:ss a')
                                         }</td>
 
                                         <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-0">
-                                            {"View More ->"}
+
+                                            <Link to={`${trace.traceId}/details`}>
+                                                <span className="text-indigo-600 hover:text-indigo-900">
+                                                    View More
+                                                </span>
+                                            </Link>
                                         </td>
                                     </tr>
                                 ))}
