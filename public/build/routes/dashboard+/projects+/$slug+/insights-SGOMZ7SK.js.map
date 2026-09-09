@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../../../app/routes/dashboard+/projects+/$slug+/insights.tsx"],
-  "sourcesContent": ["// REMIX HMR BEGIN\nimport * as __hmr__ from \"remix:hmr\";\nif (import.meta) {\nimport.meta.hot = __hmr__.createHotContext(\n//@ts-expect-error\n\"app/routes/dashboard+/projects+/$slug+/insights.tsx\"\n);\nimport.meta.hot.lastModified = \"1711711034173.0066\";\n}\n// REMIX HMR END\n\n\nexport default function analytics() {\n    return (\n        <div>analytics</div>\n    )\n}\n"],
-  "mappings": ";;;;;;;;;;;;;AAcQ;AAZR,IAAI,aAAa;AACjB,cAAY,MAAc;AAAA;AAAA,IAE1B;AAAA,EACA;AACA,cAAY,IAAI,eAAe;AAC/B;AAIe,SAAR,YAA6B;AAChC,SACI,mDAAC,SAAI,yBAAL;AAAA;AAAA;AAAA;AAAA,SAAc;AAEtB;",
-  "names": []
-}

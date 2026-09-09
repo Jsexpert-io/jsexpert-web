@@ -4,8 +4,9 @@ import {
   Cog6ToothIcon,
   FingerPrintIcon,
   LockClosedIcon,
-  ServerIcon
+  ServerIcon,
 } from '@heroicons/react/20/solid'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from '@remix-run/react'
 import { useState } from 'react'
 
@@ -35,9 +36,6 @@ const footerNavigation = {
     { name: 'Terms', href: '#' },
   ],
 }
-const navigation = [
-
-]
 const features = [
   {
     name: 'Real-time Performance Monitoring.',
@@ -70,17 +68,50 @@ const features = [
     icon: ServerIcon,
   },
 ]
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
     <div className="bg-white">
-      {/* Header */}
-
+      <header className="absolute inset-x-0 top-0 z-50">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+          <Link to="/" className="text-lg font-bold tracking-tight text-gray-900" aria-label="JsExpert home">
+            JsExpert
+          </Link>
+          <div className="flex items-center gap-x-6 lg:hidden">
+            <Link to="/auth/login" className="text-sm font-semibold leading-6 text-gray-900">
+              Log in
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen((open) => !open)}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
+            >
+              <span className="sr-only">Toggle navigation</span>
+              {mobileMenuOpen ? <XMarkIcon className="h-6 w-6" aria-hidden="true" /> : <Bars3Icon className="h-6 w-6" aria-hidden="true" />}
+            </button>
+          </div>
+          <div className="hidden items-center gap-x-8 lg:flex">
+            <a href="#features" className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600">Features</a>
+            <Link to="/auth/login" className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600">Log in</Link>
+            <Link
+              to="/auth/login"
+              className="rounded-md bg-indigo-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Get started
+            </Link>
+          </div>
+        </nav>
+        {mobileMenuOpen && (
+          <div id="mobile-navigation" className="mx-4 rounded-xl bg-white p-4 shadow-lg ring-1 ring-gray-900/10 lg:hidden">
+            <a href="#features" onClick={() => setMobileMenuOpen(false)} className="block rounded-md px-3 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50">Features</a>
+            <Link to="/auth/login" onClick={() => setMobileMenuOpen(false)} className="mt-1 block rounded-md px-3 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50">Log in</Link>
+            <Link to="/auth/login" onClick={() => setMobileMenuOpen(false)} className="mt-3 block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white hover:bg-indigo-500">Get started</Link>
+          </div>
+        )}
+      </header>
 
       <main>
         {/* Hero section */}
@@ -105,7 +136,7 @@ export default function Example() {
                   >
                     Get started
                   </Link>
-                  <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                  <a href="#features" className="text-sm font-semibold leading-6 text-gray-900">
                     Learn more <span aria-hidden="true">→</span>
                   </a>
                 </div>
@@ -121,7 +152,7 @@ export default function Example() {
         </div>
 
         {/* Feature section */}
-        <div className="mt-32 sm:mt-56">
+        <div id="features" className="mt-32 scroll-mt-24 sm:mt-56">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl sm:text-center">
               <h2 className="text-base font-semibold leading-7 text-indigo-600">Make sense of your insights</h2>

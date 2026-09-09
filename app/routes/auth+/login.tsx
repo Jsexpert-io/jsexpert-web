@@ -2,7 +2,6 @@
 
 import { ActionFunctionArgs, LoaderFunctionArgs, json, redirect } from '@remix-run/node';
 import { Link, useLocation } from '@remix-run/react';
-import { AuthorizationError } from 'remix-auth';
 import { authenticator } from '../../server/services/auth.server';
 import { commitSession, getSession } from '../../server/services/user.session.server';
 
@@ -141,9 +140,6 @@ export async function action({ request }: ActionFunctionArgs) {
         return redirect("/dashboard", { headers });
     } catch (error) {
         if (error instanceof Response) return error;
-        if (error instanceof AuthorizationError) {
-            console.log('AuthorizationError', error)
-        }
         console.log('Erro In Auth', error)
         return redirect("/login?type=" + type)
     }

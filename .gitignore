@@ -14,6 +14,10 @@
 
 # production
 /build
+/public/build
+
+# Package-manager cache
+/.cache
 
 # misc
 .DS_Store
@@ -25,6 +29,10 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
+.env.*
+!.env.example
+!.env.docker.example
 .env*.local
 
 # vercel

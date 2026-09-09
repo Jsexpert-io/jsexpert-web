@@ -11,7 +11,6 @@ RUN ls -la
 
 COPY package*.json ./
 COPY prisma ./prisma/
-COPY postinstall.cjs ./
 
 # Install dependencies including Prisma Client
 RUN npm install -g nodemon npm-run-all

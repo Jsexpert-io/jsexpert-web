@@ -32,10 +32,11 @@ export const authenticator = new Authenticator<IUser>(sessionStorage);
 const userService = new UserService();
 const googleStrategy = new GoogleStrategy(
   {
-    clientID: '845702027190-utlsmshlnbccc3hmi5v8m227d1grmfoq.apps.googleusercontent.com',
-    clientSecret: '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',
+    clientID: '856616642453-ea48pq36klvla00e31q647dipdad4c9n.apps.googleusercontent.com',
+    clientSecret: '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',
     callbackURL: `${process.env.APP_URL}/auth/google/callback`,
   },
+  
   async ({ accessToken, refreshToken, extraParams, profile }) => {
     // Get the user data from your DB or API using the tokens and profile
     return userService.loginByGoogle(profile)
